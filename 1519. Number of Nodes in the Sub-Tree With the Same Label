@@ -1,0 +1,18 @@
+l=[[] for _ in range(n)]
+for a, b in edges:
+    l[a].append(b)
+    l[b].append(a)
+count = [0]*len(string.ascii_lowercase)
+answer = [0]*n
+def dfs(node, parent):
+    i=ord(labels[node])-ord('a')
+    previous=count[i]
+
+    count[i]+=1
+
+for child in l[node]:
+    if child != parent:
+         dfs(child,node)
+answer[node]=count[i]-previous
+dfs(0,-1)
+return answer
