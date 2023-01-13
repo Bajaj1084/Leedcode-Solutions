@@ -1,0 +1,23 @@
+temp=head
+l=[]
+while temp:
+    l.append(temp.val)
+    temp=temp.next
+m=[]
+while l:
+    try:
+        m.append(l[0])
+        l.pop(0)
+    except:
+        pass
+    try:
+        m.append(l[-1])
+        l.pop()
+    except:
+        pass
+new=head
+i=0
+while new:
+    new.val=m[i]
+    i+=1
+    new=new.next
