@@ -1,0 +1,32 @@
+class Solution(object):
+    def findTheWinner(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: int
+        """
+        l=[i for i in range(1,n+1)]
+        while len(l)!=1:
+            if k<len(l):
+                temp1=l[k:]
+                temp2=l[:k-1]
+                l=list(temp1+temp2)
+            elif k==len(l):
+                l.pop()
+            elif len(l)<k:
+                m=k%len(l)
+                if m==0:
+                    l.pop()
+                elif m==1:
+                    l.pop(0)
+                else:
+                    temp1=l[m:]
+                    temp2=l[:m-1]
+                    l=list(temp1+temp2)
+                    
+        return l[0]
+            
+            
+                
+
+
