@@ -1,0 +1,22 @@
+class Solution(object):
+    def differenceOfSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        s=sum(nums)
+        x=0
+        for i in range(len(nums)):
+            y=str(nums[i])
+            l=list(y)
+            if len(y)==1:
+                x+=nums[i]
+            elif len(y)==2:
+                x+=int(l[0])+int(l[1])
+            elif len(y)==3:
+                x+=int(l[0])+int(l[1])+int(l[2])
+            else:
+                x+=int(l[0])+int(l[1])+int(l[2])+int(l[3])
+        return abs(x-s)
+                
+        
