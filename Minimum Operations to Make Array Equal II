@@ -1,0 +1,24 @@
+class Solution(object):
+    def minOperations(self, nums1, nums2, k):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :type k: int
+        :rtype: int
+        """
+        import numpy as np
+        l=np.array(nums1)-np.array(nums2)
+        if sum(l)!=0:
+            return -1
+        else:
+            if max(l)!=0 and k==0:
+                return -1
+            ans=0
+            for i in range(len(l)):
+                if abs(l[i])%k==0 or l[i]==0  :
+                    ans+=abs(l[i])//k
+                else:
+                    return -1
+            return ans//2
+        
+        
